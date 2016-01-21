@@ -7,8 +7,8 @@ This version is tested on Delphi XE and Delphi 10 (and ios).
 var
   jo: TJSON;
 begin
-  jo.New('{"ĞÕÃû":"John Doe","age":32}');               //Zero-initialize and parse json
-  memo1.Lines.Add(jo['ĞÕÃû']);                         // Output: John Doe
+  jo.New('{"å§“å":"John Doe","age":32}');               //Zero-initialize and parse json
+  memo1.Lines.Add(jo['å§“å']);                         // Output: John Doe
   memo1.Lines.Add(jo['age']);                          // Output: 32
   jo.Clear;                                             //Clear and free memory
 
