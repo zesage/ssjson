@@ -1,0 +1,207 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 480
+  ClientWidth = 643
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object mmo1: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    DataDetectorTypes = []
+    Align = Client
+    Size.Width = 643.000000000000000000
+    Size.Height = 351.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Viewport.Width = 639.000000000000000000
+    Viewport.Height = 347.000000000000000000
+  end
+  object exp1: TExpander
+    Align = Top
+    ShowCheck = False
+    Size.Width = 643.000000000000000000
+    Size.Height = 129.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    ContentSize = '104'
+    object btnCreateParse: TButton
+      Position.X = 8.000000000000000000
+      Position.Y = 8.000000000000000000
+      Size.Width = 105.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = '1. Create&&Parse'
+      OnClick = btnCreateParseClick
+    end
+    object btn2: TButton
+      Position.X = 120.000000000000000000
+      Position.Y = 32.000000000000000000
+      Size.Width = 113.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      Text = '6. Marshal'
+      OnClick = btn2Click
+    end
+    object btn3: TButton
+      Position.X = 120.000000000000000000
+      Position.Y = 56.000000000000000000
+      Size.Width = 113.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 4
+      Text = '7. Unmarshal'
+      OnClick = btn3Click
+    end
+    object btnAccessBrowse: TButton
+      Position.X = 8.000000000000000000
+      Position.Y = 32.000000000000000000
+      Size.Width = 105.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 5
+      Text = '2. Access&&Browse'
+      OnClick = btnAccessBrowseClick
+    end
+    object btnPath: TButton
+      Position.X = 120.000000000000000000
+      Position.Y = 8.000000000000000000
+      Size.Width = 113.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 6
+      Text = '5. Path&&Contains'
+      OnClick = btnPathClick
+    end
+    object btnJsonPath: TButton
+      Position.X = 552.000000000000000000
+      Position.Y = 72.000000000000000000
+      TabOrder = 7
+      Text = 'Path'
+      OnClick = btnJsonPathClick
+    end
+    object btnObjectSet: TButton
+      Position.X = 464.000000000000000000
+      Position.Y = 48.000000000000000000
+      Size.Width = 81.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 9
+      Text = 'Object Set'
+      OnClick = btnObjectSetClick
+    end
+    object SpinBox1: TSpinBox
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 10
+      Cursor = crIBeam
+      Max = 1000000.000000000000000000
+      Value = 1000.000000000000000000
+      Position.X = 552.000000000000000000
+      Position.Y = -1.000000000000000000
+      Size.Width = 81.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      OnChange = SpinBox1Change
+    end
+    object lbl1: TLabel
+      AutoSize = True
+      Position.X = 488.000000000000000000
+      Size.Width = 53.000000000000000000
+      Size.Height = 16.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.WordWrap = False
+      Text = 'Duration:'
+    end
+    object btnArraySet: TButton
+      Position.X = 552.000000000000000000
+      Position.Y = 48.000000000000000000
+      Size.Width = 81.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 8
+      Text = 'Array Set'
+      OnClick = btnArraySetClick
+    end
+    object btnObjectGet: TButton
+      Position.X = 464.000000000000000000
+      Position.Y = 24.000000000000000000
+      TabOrder = 12
+      Text = 'Object Get'
+      OnClick = btnObjectGetClick
+    end
+    object btnArrayGet: TButton
+      Position.X = 552.000000000000000000
+      Position.Y = 24.000000000000000000
+      TabOrder = 13
+      Text = 'Array Get'
+      OnClick = btnArrayGetClick
+    end
+    object btnParseJson: TButton
+      Position.X = 376.000000000000000000
+      Position.Y = 24.000000000000000000
+      TabOrder = 14
+      Text = 'ParseJson'
+      OnClick = btnParseJsonClick
+    end
+    object btnAsJson: TButton
+      Position.X = 376.000000000000000000
+      Position.Y = 48.000000000000000000
+      TabOrder = 15
+      Text = 'AsJson'
+      OnClick = btnAsJsonClick
+    end
+    object lbl2: TLabel
+      AutoSize = True
+      StyledSettings = [Family, Size, FontColor]
+      Position.X = 288.000000000000000000
+      Size.Width = 103.000000000000000000
+      Size.Height = 16.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Style = [fsBold]
+      TextSettings.WordWrap = False
+      Text = 'Test Performance'
+    end
+    object btnAddDelete: TButton
+      Position.X = 8.000000000000000000
+      Position.Y = 56.000000000000000000
+      Size.Width = 105.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 17
+      Text = '3. Add&&Delete'
+      OnClick = btnAddDeleteClick
+    end
+    object btnExtractClone: TButton
+      Position.X = 8.000000000000000000
+      Position.Y = 80.000000000000000000
+      Size.Width = 105.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 18
+      Text = '4. Extract&&Clone'
+      OnClick = btnExtractCloneClick
+    end
+    object btnMarshal: TButton
+      Position.X = 288.000000000000000000
+      Position.Y = 24.000000000000000000
+      TabOrder = 1
+      Text = 'Marshal'
+      OnClick = btnMarshalClick
+    end
+    object btnUnmarshal: TButton
+      Position.X = 288.000000000000000000
+      Position.Y = 48.000000000000000000
+      Size.Width = 81.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = 'Unmarshal'
+      OnClick = btnUnmarshalClick
+    end
+  end
+end

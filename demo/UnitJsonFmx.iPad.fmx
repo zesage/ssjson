@@ -1,0 +1,86 @@
+inherited Form1_iPad: TForm1_iPad
+  ClientHeight = 1004
+  ClientWidth = 768
+  DesignerMasterStyle = 0
+  inherited mmo1: TMemo
+    Size.Width = 768.000000000000000000
+    Size.Height = 875.000000000000000000
+    Viewport.Width = 760.000000000000000000
+    Viewport.Height = 867.000000000000000000
+  end
+  inherited exp1: TExpander
+    Size.Width = 768.000000000000000000
+    ContentSize = '104'
+    inherited btnCreateParse: TButton
+      Size.Width = 137.000000000000000000
+    end
+    inherited btn2: TButton
+      Position.X = 152.000000000000000000
+      Size.Width = 137.000000000000000000
+    end
+    inherited btn3: TButton
+      Position.X = 152.000000000000000000
+      Size.Width = 137.000000000000000000
+    end
+    inherited btnAccessBrowse: TButton
+      Size.Width = 137.000000000000000000
+    end
+    inherited btnPath: TButton
+      Position.X = 152.000000000000000000
+      Size.Width = 137.000000000000000000
+    end
+    inherited btnJsonPath: TButton
+      Size.Width = 97.000000000000000000
+      Size.Height = 44.000000000000000000
+      Size.PlatformDefault = False
+    end
+    inherited btnObjectSet: TButton
+      Position.X = 448.000000000000000000
+      Size.Width = 97.000000000000000000
+    end
+    inherited SpinBox1: TSpinBox
+      Size.Height = 30.000000000000000000
+    end
+    inherited lbl1: TLabel
+      Size.Width = 75.000000000000000000
+      Size.Height = 23.000000000000000000
+    end
+    inherited btnArraySet: TButton
+      Size.Width = 97.000000000000000000
+    end
+    inherited btnObjectGet: TButton
+      Position.X = 448.000000000000000000
+      Size.Width = 97.000000000000000000
+      Size.Height = 44.000000000000000000
+      Size.PlatformDefault = False
+    end
+    inherited btnArrayGet: TButton
+      Size.Width = 97.000000000000000000
+      Size.Height = 44.000000000000000000
+      Size.PlatformDefault = False
+    end
+    inherited btnParseJson: TButton
+      Position.X = 344.000000000000000000
+      Size.Width = 97.000000000000000000
+      Size.Height = 44.000000000000000000
+      Size.PlatformDefault = False
+    end
+    inherited btnAsJson: TButton
+      Position.X = 344.000000000000000000
+      Size.Width = 97.000000000000000000
+      Size.Height = 44.000000000000000000
+      Size.PlatformDefault = False
+    end
+    inherited lbl2: TLabel
+      Position.X = 328.000000000000000000
+      Size.Width = 146.000000000000000000
+      Size.Height = 23.000000000000000000
+    end
+    inherited btnAddDelete: TButton
+      Size.Width = 137.000000000000000000
+    end
+    inherited btnExtractClone: TButton
+      Size.Width = 137.000000000000000000
+    end
+  end
+end

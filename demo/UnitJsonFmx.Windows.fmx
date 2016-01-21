@@ -1,0 +1,10 @@
+inherited Form1_Windows: TForm1_Windows
+  DesignerMasterStyle = 0
+  inherited mmo1: TMemo
+    Viewport.Width = 639.000000000000000000
+    Viewport.Height = 347.000000000000000000
+  end
+  inherited exp1: TExpander
+    ContentSize = '104'
+  end
+end
