@@ -1898,23 +1898,54 @@ end;
 // end;
 
 class operator TJSON.Equal(const a, b: TJSON): Boolean;
-  function SameJson(jo1, jo2: PJSON): Boolean;
+  function SameJson(jo1, jo2: PJSON): Boolean; forward;
+  function SameArray(jo1, jo2: PJSON): Boolean;
   var
     index: Integer;
     listArr1: TList<PJSON>;
     listArr2: TList<PJSON>;
+  begin
+    listArr1:= TList<PJSON>(jo1.FJSONValue.jv_array);
+    listArr2:= TList<PJSON>(jo2.FJSONValue.jv_array);
+    if listArr1.Count <> listArr2.Count then
+      Exit(False);
+    for index := 0 to listArr1.Count - 1 do
+      if not SameJson(listArr1[index], listArr2[index]) then
+        Exit(False);
+    Result:= True;
+  end;
+  function SameObject(jo1, jo2: PJSON): Boolean;
+  var
+    index: Integer;
     listObj1: TList<TPair<string, PJSON>>;
     listObj2: TList<TPair<string, PJSON>>;
     pair1: TPair<string, PJSON>;
     pair2: TPair<string, PJSON>;
   begin
+    listObj1:= TList<TPair<string, PJSON>>(jo1.FJSONValue.jv_object);
+    listObj2:= TList<TPair<string, PJSON>>(jo2.FJSONValue.jv_object);
+    if listObj1.Count <> listObj2.Count then
+      Exit(False);
+    for index := 0 to listObj1.Count - 1 do
+    begin
+      pair1:= listObj1[index];
+      pair2:= listObj2[index];
+      if not (pair1.Key = pair2.Key) then
+        Exit(False);
+      if not SameJson(pair1.Value, pair2.Value) then
+        Exit(False);
+    end;
+    Result:= True;
+  end;
+  function SameJson(jo1, jo2: PJSON): Boolean;
+  begin
     if jo1 = jo2 then Exit(True);
-    Result := jo1.JSONType = jo2.JSONType;
+    Result := jo1.FJSONType = jo2.FJSONType;
     if Result then
-      case jo1.JSONType of
+      case jo1.FJSONType of
         // jtJsonPtr: ;
         jtNull:
-           Result := True;
+          Result := True;
         jtBoolean:
           Result := jo1.FJSONValue.jv_boolean = jo2.FJSONValue.jv_boolean;
         jtInteger:
@@ -1925,38 +1956,14 @@ class operator TJSON.Equal(const a, b: TJSON): Boolean;
           Result := jo1.FJSONValue.jv_currency = jo2.FJSONValue.jv_currency;
         jtString:
           Result := string(jo1.FJSONValue.jv_string) = string(jo2.FJSONValue.jv_string);
-         jtArray:
-         begin
-           listArr1:= TList<PJSON>(jo1.FJSONValue.jv_array);
-           listArr2:= TList<PJSON>(jo2.FJSONValue.jv_array);
-           if listArr1.Count <> listArr2.Count then
-             Exit(False);
-           for index := 0 to listArr1.Count - 1 do
-             if not SameJson(listArr1[index], listArr2[index]) then
-               Exit(False);
-           Result:= True;
-         end;
-         jtObject:
-         begin
-           listObj1:= TList<TPair<string, PJSON>>(jo1.FJSONValue.jv_object);
-           listObj2:= TList<TPair<string, PJSON>>(jo2.FJSONValue.jv_object);
-           if listObj1.Count <> listObj2.Count then
-             Exit(False);
-           for index := 0 to listObj1.Count - 1 do
-           begin
-              pair1:= listObj1[index];
-              pair2:= listObj2[index];
-             if not (pair1.Key = pair2.Key) then
-               Exit(False);
-             if not SameJson(pair1.Value, pair2.Value) then
-               Exit(False);
-           end;
-           Result:= True;
-          end;
+        jtArray:
+          Result:= SameArray(jo1, jo2);
+        jtObject:
+          Result:= SameObject(jo1, jo2);
       end;
   end;
 begin
-  Result:= SameJson(@a, @b);
+  Result:= SameJson(a.JSONPtr, b.JSONPtr);
 end;
 
 class operator TJSON.NotEqual(const a, b: TJSON): Boolean;
